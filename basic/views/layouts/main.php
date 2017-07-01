@@ -39,7 +39,16 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'Gestionar Pais', 'url' => '#','items'=>[
+                    ['label' => 'Lista paises', 'icon' => 'fa fa-circle-o', 'url' => ['cnvpais/index']],
+                    ['label' => 'Agregar Pais', 'icon' => 'fa fa-circle-o', 'url' => ['cnvpais/create']],
+                    ['label' => 'Editar Pais', 'icon' => 'fa fa-circle-o', 'url' => ['cnvpais/editar']],
+                    ['label' => 'Eliminar Pais', 'icon' => 'fa fa-circle-o', 'url' => ['cnvpais/eliminar']]
+
+                ]//fin items gestionar pais
+
+            ],
+
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
@@ -54,6 +63,18 @@ AppAsset::register($this);
             )
         ],
     ]);
+
+/*
+['label' => 'Gestionar Electivo', 'url' => '#','visible' => !(Yii::$app->user->isGuest),
+                    'items' => [
+                    ['label' => 'Agregar Electivo', 'icon' => 'fa fa-circle-o', 'url' => ['asignatura/create']],
+                    ['label' => 'Editar Electivo', 'icon' => 'fa fa-circle-o', 'url' => ['asignatura/editar'],],
+                    ['label' => 'Eliminar Electivo', 'icon' => 'fa fa-circle-o', 'url' => ['asignatura/eliminar'],],
+                               ],
+                ],
+*/
+
+
     NavBar::end();
     ?>
 
