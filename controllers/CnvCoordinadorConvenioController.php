@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\CnvNoticia;
-use app\models\CnvNoticiaSearch;
+use app\models\CnvCoordinadorConvenio;
+use app\models\CnvCoordinadorConvenioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CnvNoticiaController implements the CRUD actions for CnvNoticia model.
+ * CnvCoordinadorConvenioController implements the CRUD actions for CnvCoordinadorConvenio model.
  */
-class CnvNoticiaController extends Controller
+class CnvCoordinadorConvenioController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class CnvNoticiaController extends Controller
     }
 
     /**
-     * Lists all CnvNoticia models.
+     * Lists all CnvCoordinadorConvenio models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CnvNoticiaSearch();
+        $searchModel = new CnvCoordinadorConvenioSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,8 +45,8 @@ class CnvNoticiaController extends Controller
     }
 
     /**
-     * Displays a single CnvNoticia model.
-     * @param integer $id
+     * Displays a single CnvCoordinadorConvenio model.
+     * @param string $id
      * @return mixed
      */
     public function actionView($id)
@@ -57,16 +57,16 @@ class CnvNoticiaController extends Controller
     }
 
     /**
-     * Creates a new CnvNoticia model.
+     * Creates a new CnvCoordinadorConvenio model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new CnvNoticia();
+        $model = new CnvCoordinadorConvenio();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_noticia]);
+            return $this->redirect(['view', 'id' => $model->ID_COORDINADOR_CONVENIO]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -75,9 +75,9 @@ class CnvNoticiaController extends Controller
     }
 
     /**
-     * Updates an existing CnvNoticia model.
+     * Updates an existing CnvCoordinadorConvenio model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      */
     public function actionUpdate($id)
@@ -85,7 +85,7 @@ class CnvNoticiaController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_noticia]);
+            return $this->redirect(['view', 'id' => $model->ID_COORDINADOR_CONVENIO]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -94,9 +94,9 @@ class CnvNoticiaController extends Controller
     }
 
     /**
-     * Deletes an existing CnvNoticia model.
+     * Deletes an existing CnvCoordinadorConvenio model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      */
     public function actionDelete($id)
@@ -107,15 +107,15 @@ class CnvNoticiaController extends Controller
     }
 
     /**
-     * Finds the CnvNoticia model based on its primary key value.
+     * Finds the CnvCoordinadorConvenio model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return CnvNoticia the loaded model
+     * @param string $id
+     * @return CnvCoordinadorConvenio the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = CnvNoticia::findOne($id)) !== null) {
+        if (($model = CnvCoordinadorConvenio::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
