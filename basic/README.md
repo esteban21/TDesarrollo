@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Yii 2 Basic Project Template
 ============================
 
@@ -206,6 +205,3 @@ vendor/bin/codecept run functional,unit -- --coverage-html --coverage-xml
 ```
 
 You can see code coverage output under the `tests/_output` directory.
-=======
-# TDesarrollo
->>>>>>> 68c9e869f0243249b32911dc5370d2e6c1fb95af
