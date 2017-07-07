@@ -7,18 +7,21 @@ use Yii;
 /**
  * This is the model class for table "cnv_institucion".
  *
- * @property integer $ID_TIPO_INSTITUCION
- * @property string $NOMBRE_INSTITUCION
- * @property integer $ID_INSTITUCION
- * @property integer $ID_PAIS
- * @property string $VIGENTE
- * @property string $ID_INTERNACIONAL
- * @property string $RUT_INSTITUCION
- * @property string $RAZON_SOCIAL_INSTITUCION
- * @property string $DIRECCION_INSTITUCION
- * @property string $TELEFONO_INSTITUCION
- * @property string $EMAIL_INSTITUCION
- * @property string $LINK_INSTITUCION
+ * @property string $nombre_institucion
+ * @property integer $id_institucion
+ * @property integer $id_pais
+ * @property integer $id_tipo_institucion
+ * @property string $vigente
+ * @property string $rut_institucion
+ * @property string $razon_social_institucion
+ * @property string $direccion_institucion
+ * @property string $telefono_institucion
+ * @property string $email_institucion
+ * @property string $link_institucion
+ *
+ * @property CnvConvenio[] $cnvConvenios
+ * @property CnvPais $idPais
+ * @property CnvTipoInstitucion $idTipoInstitucion
  */
 class CnvInstitucion extends \yii\db\ActiveRecord
 {
@@ -36,13 +39,15 @@ class CnvInstitucion extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_TIPO_INSTITUCION', 'NOMBRE_INSTITUCION', 'ID_INSTITUCION', 'ID_PAIS'], 'required'],
-            [['ID_TIPO_INSTITUCION', 'ID_INSTITUCION', 'ID_PAIS'], 'integer'],
-            [['NOMBRE_INSTITUCION', 'RAZON_SOCIAL_INSTITUCION', 'DIRECCION_INSTITUCION'], 'string', 'max' => 500],
-            [['VIGENTE', 'ID_INTERNACIONAL'], 'string', 'max' => 1],
-            [['RUT_INSTITUCION'], 'string', 'max' => 12],
-            [['TELEFONO_INSTITUCION'], 'string', 'max' => 100],
-            [['EMAIL_INSTITUCION', 'LINK_INSTITUCION'], 'string', 'max' => 200],
+            [['nombre_institucion', 'id_institucion', 'id_pais'], 'required'],
+            [['id_institucion', 'id_pais', 'id_tipo_institucion'], 'integer'],
+            [['nombre_institucion', 'razon_social_institucion', 'direccion_institucion'], 'string', 'max' => 500],
+            [['vigente'], 'string', 'max' => 1],
+            [['rut_institucion'], 'string', 'max' => 12],
+            [['telefono_institucion'], 'string', 'max' => 100],
+            [['email_institucion', 'link_institucion'], 'string', 'max' => 200],
+            [['id_pais'], 'exist', 'skipOnError' => true, 'targetClass' => CnvPais::className(), 'targetAttribute' => ['id_pais' => 'id_pais']],
+            [['id_tipo_institucion'], 'exist', 'skipOnError' => true, 'targetClass' => CnvTipoInstitucion::className(), 'targetAttribute' => ['id_tipo_institucion' => 'id_tipo_institucion']],
         ];
     }
 
@@ -52,18 +57,41 @@ class CnvInstitucion extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID_TIPO_INSTITUCION' => 'Id  Tipo  Institucion',
-            'NOMBRE_INSTITUCION' => 'Nombre  Institucion',
-            'ID_INSTITUCION' => 'Id  Institucion',
-            'ID_PAIS' => 'Id  Pais',
-            'VIGENTE' => 'Vigente',
-            'ID_INTERNACIONAL' => 'Id  Internacional',
-            'RUT_INSTITUCION' => 'Rut  Institucion',
-            'RAZON_SOCIAL_INSTITUCION' => 'Razon  Social  Institucion',
-            'DIRECCION_INSTITUCION' => 'Direccion  Institucion',
-            'TELEFONO_INSTITUCION' => 'Telefono  Institucion',
-            'EMAIL_INSTITUCION' => 'Email  Institucion',
-            'LINK_INSTITUCION' => 'Link  Institucion',
+            'nombre_institucion' => 'Nombre Institucion',
+            'id_institucion' => 'Id Institucion',
+            'id_pais' => 'Id Pais',
+            'id_tipo_institucion' => 'Id Tipo Institucion',
+            'vigente' => 'Vigente',
+            'rut_institucion' => 'Rut Institucion',
+            'razon_social_institucion' => 'Razon Social Institucion',
+            'direccion_institucion' => 'Direccion Institucion',
+            'telefono_institucion' => 'Telefono Institucion',
+            'email_institucion' => 'Email Institucion',
+            'link_institucion' => 'Link Institucion',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCnvConvenios()
+    {
+        return $this->hasMany(CnvConvenio::className(), ['id_institucion' => 'id_institucion']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdPais()
+    {
+        return $this->hasOne(CnvPais::className(), ['id_pais' => 'id_pais']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdTipoInstitucion()
+    {
+        return $this->hasOne(CnvTipoInstitucion::className(), ['id_tipo_institucion' => 'id_tipo_institucion']);
     }
 }

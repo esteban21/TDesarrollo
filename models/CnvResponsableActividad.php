@@ -7,9 +7,11 @@ use Yii;
 /**
  * This is the model class for table "cnv_responsable_actividad".
  *
- * @property string $ID_RESPONSABLE_ACTIVIDAD
- * @property string $NOMBRE_RESPONSABLE
- * @property string $VIGENTE
+ * @property string $id_responsable_actividad
+ * @property string $nombre_responsable
+ * @property string $vigente
+ *
+ * @property CnvActividadConvenio[] $cnvActividadConvenios
  */
 class CnvResponsableActividad extends \yii\db\ActiveRecord
 {
@@ -27,10 +29,10 @@ class CnvResponsableActividad extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_RESPONSABLE_ACTIVIDAD'], 'required'],
-            [['ID_RESPONSABLE_ACTIVIDAD'], 'string', 'max' => 20],
-            [['NOMBRE_RESPONSABLE'], 'string', 'max' => 200],
-            [['VIGENTE'], 'string', 'max' => 1],
+            [['id_responsable_actividad'], 'required'],
+            [['id_responsable_actividad'], 'string', 'max' => 20],
+            [['nombre_responsable'], 'string', 'max' => 200],
+            [['vigente'], 'string', 'max' => 1],
         ];
     }
 
@@ -40,9 +42,17 @@ class CnvResponsableActividad extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID_RESPONSABLE_ACTIVIDAD' => 'Id  Responsable  Actividad',
-            'NOMBRE_RESPONSABLE' => 'Nombre  Responsable',
-            'VIGENTE' => 'Vigente',
+            'id_responsable_actividad' => 'Id Responsable Actividad',
+            'nombre_responsable' => 'Nombre Responsable',
+            'vigente' => 'Vigente',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCnvActividadConvenios()
+    {
+        return $this->hasMany(CnvActividadConvenio::className(), ['id_responsable_actividad' => 'id_responsable_actividad']);
     }
 }

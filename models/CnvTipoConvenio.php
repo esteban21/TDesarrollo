@@ -7,10 +7,12 @@ use Yii;
 /**
  * This is the model class for table "cnv_tipo_convenio".
  *
- * @property integer $ID_TIPO_CONVENIO
- * @property string $NOMBRE_TIPO_CONVENIO
- * @property string $NEMONICO
- * @property string $VIGENTE
+ * @property integer $id_tipo_convenio
+ * @property string $nombre_tipo_convenio
+ * @property string $nemonico
+ * @property string $vigente
+ *
+ * @property CnvConvenio[] $cnvConvenios
  */
 class CnvTipoConvenio extends \yii\db\ActiveRecord
 {
@@ -28,10 +30,10 @@ class CnvTipoConvenio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_TIPO_CONVENIO'], 'required'],
-            [['ID_TIPO_CONVENIO'], 'integer'],
-            [['NOMBRE_TIPO_CONVENIO'], 'string', 'max' => 200],
-            [['NEMONICO', 'VIGENTE'], 'string', 'max' => 1],
+            [['id_tipo_convenio'], 'required'],
+            [['id_tipo_convenio'], 'integer'],
+            [['nombre_tipo_convenio'], 'string', 'max' => 200],
+            [['nemonico', 'vigente'], 'string', 'max' => 1],
         ];
     }
 
@@ -41,10 +43,18 @@ class CnvTipoConvenio extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID_TIPO_CONVENIO' => 'Id  Tipo  Convenio',
-            'NOMBRE_TIPO_CONVENIO' => 'Nombre  Tipo  Convenio',
-            'NEMONICO' => 'Nemonico',
-            'VIGENTE' => 'Vigente',
+            'id_tipo_convenio' => 'Id Tipo Convenio',
+            'nombre_tipo_convenio' => 'Nombre Tipo Convenio',
+            'nemonico' => 'Nemonico',
+            'vigente' => 'Vigente',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCnvConvenios()
+    {
+        return $this->hasMany(CnvConvenio::className(), ['id_tipo_convenio' => 'id_tipo_convenio']);
     }
 }

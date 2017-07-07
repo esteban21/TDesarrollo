@@ -4,27 +4,17 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\CnvActividadConvenio */
+/* @var $model app\models\CnvEstadoActividad */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="cnv-actividad-convenio-form">
+<div class="cnv-estado-actividad-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_actividad_convenio')->textInput() ?>
-
-    <?= $form->field($model, 'id_tipo_actividad')->textInput() ?>
-
-    <?= $form->field($model, 'id_responsable_actividad')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'id_estado_actividad')->textInput() ?>
 
-    <?= $form->field($model, 'fecha_inicio')->textInput() ?>
-
-    <?= $form->field($model, 'fecha_fin')->textInput() ?>
-
-    <?= $form->field($model, 'nombre_actividad')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'nombre_estado')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'descripcion')->textInput(['maxlength' => true]) ?>
 

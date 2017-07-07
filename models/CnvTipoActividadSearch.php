@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\CnvNoticia;
+use app\models\CnvTipoActividad;
 
 /**
- * CnvNoticiaSearch represents the model behind the search form about `app\models\CnvNoticia`.
+ * CnvTipoActividadSearch represents the model behind the search form about `app\models\CnvTipoActividad`.
  */
-class CnvNoticiaSearch extends CnvNoticia
+class CnvTipoActividadSearch extends CnvTipoActividad
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class CnvNoticiaSearch extends CnvNoticia
     public function rules()
     {
         return [
-            [['id_noticia'], 'integer'],
-            [['titulo', 'cuerpo', 'fecha', 'url_imagen', 'vigente'], 'safe'],
+            [['id_tipo_actividad'], 'integer'],
+            [['nombre_tipo_actividad', 'descripcion', 'vigente'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class CnvNoticiaSearch extends CnvNoticia
      */
     public function search($params)
     {
-        $query = CnvNoticia::find();
+        $query = CnvTipoActividad::find();
 
         // add conditions that should always apply here
 
@@ -59,13 +59,11 @@ class CnvNoticiaSearch extends CnvNoticia
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id_noticia' => $this->id_noticia,
-            'fecha' => $this->fecha,
+            'id_tipo_actividad' => $this->id_tipo_actividad,
         ]);
 
-        $query->andFilterWhere(['like', 'titulo', $this->titulo])
-            ->andFilterWhere(['like', 'cuerpo', $this->cuerpo])
-            ->andFilterWhere(['like', 'url_imagen', $this->url_imagen])
+        $query->andFilterWhere(['like', 'nombre_tipo_actividad', $this->nombre_tipo_actividad])
+            ->andFilterWhere(['like', 'descripcion', $this->descripcion])
             ->andFilterWhere(['like', 'vigente', $this->vigente]);
 
         return $dataProvider;

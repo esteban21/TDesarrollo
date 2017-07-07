@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\CnvCoordinadorConvenio;
-use app\models\CnvCoordinadorConvenioSearch;
+use app\models\CnvResponsableActividad;
+use app\models\CnvResponsableActividadSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CnvCoordinadorConvenioController implements the CRUD actions for CnvCoordinadorConvenio model.
+ * CnvResponsableActividadController implements the CRUD actions for CnvResponsableActividad model.
  */
-class CnvCoordinadorConvenioController extends Controller
+class CnvResponsableActividadController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class CnvCoordinadorConvenioController extends Controller
     }
 
     /**
-     * Lists all CnvCoordinadorConvenio models.
+     * Lists all CnvResponsableActividad models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CnvCoordinadorConvenioSearch();
+        $searchModel = new CnvResponsableActividadSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class CnvCoordinadorConvenioController extends Controller
     }
 
     /**
-     * Displays a single CnvCoordinadorConvenio model.
+     * Displays a single CnvResponsableActividad model.
      * @param string $id
      * @return mixed
      */
@@ -57,16 +57,16 @@ class CnvCoordinadorConvenioController extends Controller
     }
 
     /**
-     * Creates a new CnvCoordinadorConvenio model.
+     * Creates a new CnvResponsableActividad model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new CnvCoordinadorConvenio();
+        $model = new CnvResponsableActividad();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID_COORDINADOR_CONVENIO]);
+            return $this->redirect(['view', 'id' => $model->id_responsable_actividad]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -75,7 +75,7 @@ class CnvCoordinadorConvenioController extends Controller
     }
 
     /**
-     * Updates an existing CnvCoordinadorConvenio model.
+     * Updates an existing CnvResponsableActividad model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -85,7 +85,7 @@ class CnvCoordinadorConvenioController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID_COORDINADOR_CONVENIO]);
+            return $this->redirect(['view', 'id' => $model->id_responsable_actividad]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -94,7 +94,7 @@ class CnvCoordinadorConvenioController extends Controller
     }
 
     /**
-     * Deletes an existing CnvCoordinadorConvenio model.
+     * Deletes an existing CnvResponsableActividad model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
@@ -107,15 +107,15 @@ class CnvCoordinadorConvenioController extends Controller
     }
 
     /**
-     * Finds the CnvCoordinadorConvenio model based on its primary key value.
+     * Finds the CnvResponsableActividad model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return CnvCoordinadorConvenio the loaded model
+     * @return CnvResponsableActividad the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = CnvCoordinadorConvenio::findOne($id)) !== null) {
+        if (($model = CnvResponsableActividad::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\CnvActividadConvenioSearch */
+/* @var $searchModel app\models\CnvResponsableActividadSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Cnv Actividad Convenios';
+$this->title = 'Cnv Responsable Actividads';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="cnv-actividad-convenio-index">
+<div class="cnv-responsable-actividad-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Cnv Actividad Convenio', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Cnv Responsable Actividad', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,15 +24,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id_actividad_convenio',
-            'id_tipo_actividad',
             'id_responsable_actividad',
-            'id_estado_actividad',
-            'fecha_inicio',
-            // 'fecha_fin',
-            // 'nombre_actividad',
-            // 'descripcion',
-            // 'vigente',
+            'nombre_responsable',
+            'vigente',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

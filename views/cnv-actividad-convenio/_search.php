@@ -15,25 +15,23 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'ID_ESTADO_ACTIVIDAD') ?>
+    <?= $form->field($model, 'id_actividad_convenio') ?>
 
-    <?= $form->field($model, 'ID_TIPO_ACTIVIDAD') ?>
+    <?= $form->field($model, 'id_tipo_actividad') ?>
 
-    <?= $form->field($model, 'ID_RESPONSABLE_ACTIVIDAD') ?>
+    <?= $form->field($model, 'id_responsable_actividad') ?>
 
-    <?= $form->field($model, 'FECHA_INICIO') ?>
+    <?= $form->field($model, 'id_estado_actividad') ?>
 
-    <?= $form->field($model, 'FECHA_FIN') ?>
+    <?= $form->field($model, 'fecha_inicio') ?>
 
-    <?php // echo $form->field($model, 'ID_ACTIVIDAD_CONVENIO') ?>
+    <?php // echo $form->field($model, 'fecha_fin') ?>
 
-    <?php // echo $form->field($model, 'ID_CONVENIO') ?>
+    <?php // echo $form->field($model, 'nombre_actividad') ?>
 
-    <?php // echo $form->field($model, 'NOMBRE_ACTIVIDAD') ?>
+    <?php // echo $form->field($model, 'descripcion') ?>
 
-    <?php // echo $form->field($model, 'DESCRIPCION') ?>
-
-    <?php // echo $form->field($model, 'VIGENTE') ?>
+    <?php // echo $form->field($model, 'vigente') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

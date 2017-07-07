@@ -7,10 +7,13 @@ use Yii;
 /**
  * This is the model class for table "cnv_area_convenio".
  *
- * @property integer $ID_AREA_CONVENIO
- * @property string $NOMBRE_AREA_CONVENIO
- * @property string $DESCRIPCION
- * @property string $VIGENTE
+ * @property integer $id_area_convenio
+ * @property string $nombre_area_convenio
+ * @property string $descripcion
+ * @property string $vigente
+ *
+ * @property ContenidosEn[] $contenidosEns
+ * @property CnvConvenio[] $idConvenios
  */
 class CnvAreaConvenio extends \yii\db\ActiveRecord
 {
@@ -28,11 +31,11 @@ class CnvAreaConvenio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_AREA_CONVENIO'], 'required'],
-            [['ID_AREA_CONVENIO'], 'integer'],
-            [['NOMBRE_AREA_CONVENIO'], 'string', 'max' => 200],
-            [['DESCRIPCION'], 'string', 'max' => 500],
-            [['VIGENTE'], 'string', 'max' => 1],
+            [['id_area_convenio'], 'required'],
+            [['id_area_convenio'], 'integer'],
+            [['nombre_area_convenio'], 'string', 'max' => 200],
+            [['descripcion'], 'string', 'max' => 500],
+            [['vigente'], 'string', 'max' => 1],
         ];
     }
 
@@ -42,10 +45,26 @@ class CnvAreaConvenio extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID_AREA_CONVENIO' => 'Id  Area  Convenio',
-            'NOMBRE_AREA_CONVENIO' => 'Nombre  Area  Convenio',
-            'DESCRIPCION' => 'Descripcion',
-            'VIGENTE' => 'Vigente',
+            'id_area_convenio' => 'Id Area Convenio',
+            'nombre_area_convenio' => 'Nombre Area Convenio',
+            'descripcion' => 'Descripcion',
+            'vigente' => 'Vigente',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getContenidosEns()
+    {
+        return $this->hasMany(ContenidosEn::className(), ['id_area_convenio' => 'id_area_convenio']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdConvenios()
+    {
+        return $this->hasMany(CnvConvenio::className(), ['id_convenio' => 'id_convenio'])->viaTable('contenidos_en', ['id_area_convenio' => 'id_area_convenio']);
     }
 }

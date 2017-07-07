@@ -66,7 +66,7 @@ class CnvActividadConvenioController extends Controller
         $model = new CnvActividadConvenio();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID_ACTIVIDAD_CONVENIO]);
+            return $this->redirect(['view', 'id' => $model->id_actividad_convenio]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -85,7 +85,7 @@ class CnvActividadConvenioController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID_ACTIVIDAD_CONVENIO]);
+            return $this->redirect(['view', 'id' => $model->id_actividad_convenio]);
         } else {
             return $this->render('update', [
                 'model' => $model,

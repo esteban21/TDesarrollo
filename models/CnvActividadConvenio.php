@@ -7,18 +7,20 @@ use Yii;
 /**
  * This is the model class for table "cnv_actividad_convenio".
  *
- * @property integer $ID_ESTADO_ACTIVIDAD
- * @property integer $ID_TIPO_ACTIVIDAD
- * @property string $ID_RESPONSABLE_ACTIVIDAD
- * @property string $FECHA_INICIO
- * @property string $FECHA_FIN
- * @property integer $ID_ACTIVIDAD_CONVENIO
- * @property integer $ID_CONVENIO
- * @property string $NOMBRE_ACTIVIDAD
- * @property string $DESCRIPCION
- * @property string $VIGENTE
+ * @property integer $id_actividad_convenio
+ * @property integer $id_tipo_actividad
+ * @property string $id_responsable_actividad
+ * @property integer $id_estado_actividad
+ * @property string $fecha_inicio
+ * @property string $fecha_fin
+ * @property string $nombre_actividad
+ * @property string $descripcion
+ * @property string $vigente
  *
- * @property CnvConvenio $iDCONVENIO
+ * @property CnvTipoActividad $idTipoActividad
+ * @property CnvResponsableActividad $idResponsableActividad
+ * @property CnvEstadoActividad $idEstadoActividad
+ * @property CnvConvenio[] $cnvConvenios
  */
 class CnvActividadConvenio extends \yii\db\ActiveRecord
 {
@@ -36,14 +38,16 @@ class CnvActividadConvenio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_ESTADO_ACTIVIDAD', 'ID_TIPO_ACTIVIDAD', 'ID_RESPONSABLE_ACTIVIDAD', 'ID_ACTIVIDAD_CONVENIO'], 'required'],
-            [['ID_ESTADO_ACTIVIDAD', 'ID_TIPO_ACTIVIDAD', 'ID_ACTIVIDAD_CONVENIO', 'ID_CONVENIO'], 'integer'],
-            [['FECHA_INICIO', 'FECHA_FIN'], 'safe'],
-            [['ID_RESPONSABLE_ACTIVIDAD'], 'string', 'max' => 20],
-            [['NOMBRE_ACTIVIDAD'], 'string', 'max' => 200],
-            [['DESCRIPCION'], 'string', 'max' => 500],
-            [['VIGENTE'], 'string', 'max' => 1],
-            [['ID_CONVENIO'], 'exist', 'skipOnError' => true, 'targetClass' => CnvConvenio::className(), 'targetAttribute' => ['ID_CONVENIO' => 'ID_CONVENIO']],
+            [['id_actividad_convenio', 'id_tipo_actividad', 'id_estado_actividad'], 'required'],
+            [['id_actividad_convenio', 'id_tipo_actividad', 'id_estado_actividad'], 'integer'],
+            [['fecha_inicio', 'fecha_fin'], 'safe'],
+            [['id_responsable_actividad'], 'string', 'max' => 20],
+            [['nombre_actividad'], 'string', 'max' => 200],
+            [['descripcion'], 'string', 'max' => 500],
+            [['vigente'], 'string', 'max' => 1],
+            [['id_tipo_actividad'], 'exist', 'skipOnError' => true, 'targetClass' => CnvTipoActividad::className(), 'targetAttribute' => ['id_tipo_actividad' => 'id_tipo_actividad']],
+            [['id_responsable_actividad'], 'exist', 'skipOnError' => true, 'targetClass' => CnvResponsableActividad::className(), 'targetAttribute' => ['id_responsable_actividad' => 'id_responsable_actividad']],
+            [['id_estado_actividad'], 'exist', 'skipOnError' => true, 'targetClass' => CnvEstadoActividad::className(), 'targetAttribute' => ['id_estado_actividad' => 'id_estado_actividad']],
         ];
     }
 
@@ -53,24 +57,47 @@ class CnvActividadConvenio extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID_ESTADO_ACTIVIDAD' => 'Id  Estado  Actividad',
-            'ID_TIPO_ACTIVIDAD' => 'Id  Tipo  Actividad',
-            'ID_RESPONSABLE_ACTIVIDAD' => 'Id  Responsable  Actividad',
-            'FECHA_INICIO' => 'Fecha  Inicio',
-            'FECHA_FIN' => 'Fecha  Fin',
-            'ID_ACTIVIDAD_CONVENIO' => 'Id  Actividad  Convenio',
-            'ID_CONVENIO' => 'Id  Convenio',
-            'NOMBRE_ACTIVIDAD' => 'Nombre  Actividad',
-            'DESCRIPCION' => 'Descripcion',
-            'VIGENTE' => 'Vigente',
+            'id_actividad_convenio' => 'Id Actividad Convenio',
+            'id_tipo_actividad' => 'Id Tipo Actividad',
+            'id_responsable_actividad' => 'Id Responsable Actividad',
+            'id_estado_actividad' => 'Id Estado Actividad',
+            'fecha_inicio' => 'Fecha Inicio',
+            'fecha_fin' => 'Fecha Fin',
+            'nombre_actividad' => 'Nombre Actividad',
+            'descripcion' => 'Descripcion',
+            'vigente' => 'Vigente',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIDCONVENIO()
+    public function getIdTipoActividad()
     {
-        return $this->hasOne(CnvConvenio::className(), ['ID_CONVENIO' => 'ID_CONVENIO']);
+        return $this->hasOne(CnvTipoActividad::className(), ['id_tipo_actividad' => 'id_tipo_actividad']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdResponsableActividad()
+    {
+        return $this->hasOne(CnvResponsableActividad::className(), ['id_responsable_actividad' => 'id_responsable_actividad']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdEstadoActividad()
+    {
+        return $this->hasOne(CnvEstadoActividad::className(), ['id_estado_actividad' => 'id_estado_actividad']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCnvConvenios()
+    {
+        return $this->hasMany(CnvConvenio::className(), ['id_actividad_convenio' => 'id_actividad_convenio']);
     }
 }

@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\CnvNoticia;
-use app\models\CnvNoticiaSearch;
+use app\models\CnvEstadoActividad;
+use app\models\CnvEstadoActividadSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CnvNoticiaController implements the CRUD actions for CnvNoticia model.
+ * CnvEstadoActividadController implements the CRUD actions for CnvEstadoActividad model.
  */
-class CnvNoticiaController extends Controller
+class CnvEstadoActividadController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class CnvNoticiaController extends Controller
     }
 
     /**
-     * Lists all CnvNoticia models.
+     * Lists all CnvEstadoActividad models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CnvNoticiaSearch();
+        $searchModel = new CnvEstadoActividadSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class CnvNoticiaController extends Controller
     }
 
     /**
-     * Displays a single CnvNoticia model.
+     * Displays a single CnvEstadoActividad model.
      * @param integer $id
      * @return mixed
      */
@@ -57,16 +57,16 @@ class CnvNoticiaController extends Controller
     }
 
     /**
-     * Creates a new CnvNoticia model.
+     * Creates a new CnvEstadoActividad model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new CnvNoticia();
+        $model = new CnvEstadoActividad();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_noticia]);
+            return $this->redirect(['view', 'id' => $model->id_estado_actividad]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -75,7 +75,7 @@ class CnvNoticiaController extends Controller
     }
 
     /**
-     * Updates an existing CnvNoticia model.
+     * Updates an existing CnvEstadoActividad model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -85,7 +85,7 @@ class CnvNoticiaController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_noticia]);
+            return $this->redirect(['view', 'id' => $model->id_estado_actividad]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -94,7 +94,7 @@ class CnvNoticiaController extends Controller
     }
 
     /**
-     * Deletes an existing CnvNoticia model.
+     * Deletes an existing CnvEstadoActividad model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class CnvNoticiaController extends Controller
     }
 
     /**
-     * Finds the CnvNoticia model based on its primary key value.
+     * Finds the CnvEstadoActividad model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return CnvNoticia the loaded model
+     * @return CnvEstadoActividad the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = CnvNoticia::findOne($id)) !== null) {
+        if (($model = CnvEstadoActividad::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

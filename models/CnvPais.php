@@ -7,10 +7,12 @@ use Yii;
 /**
  * This is the model class for table "cnv_pais".
  *
- * @property integer $ID_PAIS
- * @property string $NOMBRE_PAIS
- * @property string $CODIGO_PAIS
- * @property string $VIGENTE
+ * @property integer $id_pais
+ * @property string $nombre_pais
+ * @property string $codigo_pais
+ * @property string $vigente
+ *
+ * @property CnvInstitucion[] $cnvInstitucions
  */
 class CnvPais extends \yii\db\ActiveRecord
 {
@@ -28,11 +30,11 @@ class CnvPais extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_PAIS'], 'required'],
-            [['ID_PAIS'], 'integer'],
-            [['NOMBRE_PAIS'], 'string', 'max' => 200],
-            [['CODIGO_PAIS'], 'string', 'max' => 10],
-            [['VIGENTE'], 'string', 'max' => 1],
+            [['id_pais'], 'required'],
+            [['id_pais'], 'integer'],
+            [['nombre_pais'], 'string', 'max' => 200],
+            [['codigo_pais'], 'string', 'max' => 10],
+            [['vigente'], 'string', 'max' => 1],
         ];
     }
 
@@ -42,10 +44,18 @@ class CnvPais extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID_PAIS' => 'Id  Pais',
-            'NOMBRE_PAIS' => 'Nombre  Pais',
-            'CODIGO_PAIS' => 'Codigo  Pais',
-            'VIGENTE' => 'Vigente',
+            'id_pais' => 'Id Pais',
+            'nombre_pais' => 'Nombre Pais',
+            'codigo_pais' => 'Codigo Pais',
+            'vigente' => 'Vigente',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCnvInstitucions()
+    {
+        return $this->hasMany(CnvInstitucion::className(), ['id_pais' => 'id_pais']);
     }
 }

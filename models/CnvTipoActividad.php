@@ -7,10 +7,12 @@ use Yii;
 /**
  * This is the model class for table "cnv_tipo_actividad".
  *
- * @property integer $ID_TIPO_ACTIVIDAD
- * @property string $NOMBRE_TIPO_ACTIVIDAD
- * @property string $DESCRIPCION
- * @property string $VIGENTE
+ * @property integer $id_tipo_actividad
+ * @property string $nombre_tipo_actividad
+ * @property string $descripcion
+ * @property string $vigente
+ *
+ * @property CnvActividadConvenio[] $cnvActividadConvenios
  */
 class CnvTipoActividad extends \yii\db\ActiveRecord
 {
@@ -28,11 +30,11 @@ class CnvTipoActividad extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_TIPO_ACTIVIDAD'], 'required'],
-            [['ID_TIPO_ACTIVIDAD'], 'integer'],
-            [['NOMBRE_TIPO_ACTIVIDAD'], 'string', 'max' => 300],
-            [['DESCRIPCION'], 'string', 'max' => 500],
-            [['VIGENTE'], 'string', 'max' => 1],
+            [['id_tipo_actividad'], 'required'],
+            [['id_tipo_actividad'], 'integer'],
+            [['nombre_tipo_actividad'], 'string', 'max' => 300],
+            [['descripcion'], 'string', 'max' => 500],
+            [['vigente'], 'string', 'max' => 1],
         ];
     }
 
@@ -42,10 +44,18 @@ class CnvTipoActividad extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID_TIPO_ACTIVIDAD' => 'Id  Tipo  Actividad',
-            'NOMBRE_TIPO_ACTIVIDAD' => 'Nombre  Tipo  Actividad',
-            'DESCRIPCION' => 'Descripcion',
-            'VIGENTE' => 'Vigente',
+            'id_tipo_actividad' => 'Id Tipo Actividad',
+            'nombre_tipo_actividad' => 'Nombre Tipo Actividad',
+            'descripcion' => 'Descripcion',
+            'vigente' => 'Vigente',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCnvActividadConvenios()
+    {
+        return $this->hasMany(CnvActividadConvenio::className(), ['id_tipo_actividad' => 'id_tipo_actividad']);
     }
 }

@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\CnvActividadConvenio;
+use app\models\CnvResponsableActividad;
 
 /**
- * CnvActividadConvenioSearch represents the model behind the search form about `app\models\CnvActividadConvenio`.
+ * CnvResponsableActividadSearch represents the model behind the search form about `app\models\CnvResponsableActividad`.
  */
-class CnvActividadConvenioSearch extends CnvActividadConvenio
+class CnvResponsableActividadSearch extends CnvResponsableActividad
 {
     /**
      * @inheritdoc
@@ -18,8 +18,7 @@ class CnvActividadConvenioSearch extends CnvActividadConvenio
     public function rules()
     {
         return [
-            [['id_actividad_convenio', 'id_tipo_actividad', 'id_estado_actividad'], 'integer'],
-            [['id_responsable_actividad', 'fecha_inicio', 'fecha_fin', 'nombre_actividad', 'descripcion', 'vigente'], 'safe'],
+            [['id_responsable_actividad', 'nombre_responsable', 'vigente'], 'safe'],
         ];
     }
 
@@ -41,7 +40,7 @@ class CnvActividadConvenioSearch extends CnvActividadConvenio
      */
     public function search($params)
     {
-        $query = CnvActividadConvenio::find();
+        $query = CnvResponsableActividad::find();
 
         // add conditions that should always apply here
 
@@ -58,17 +57,8 @@ class CnvActividadConvenioSearch extends CnvActividadConvenio
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'id_actividad_convenio' => $this->id_actividad_convenio,
-            'id_tipo_actividad' => $this->id_tipo_actividad,
-            'id_estado_actividad' => $this->id_estado_actividad,
-            'fecha_inicio' => $this->fecha_inicio,
-            'fecha_fin' => $this->fecha_fin,
-        ]);
-
         $query->andFilterWhere(['like', 'id_responsable_actividad', $this->id_responsable_actividad])
-            ->andFilterWhere(['like', 'nombre_actividad', $this->nombre_actividad])
-            ->andFilterWhere(['like', 'descripcion', $this->descripcion])
+            ->andFilterWhere(['like', 'nombre_responsable', $this->nombre_responsable])
             ->andFilterWhere(['like', 'vigente', $this->vigente]);
 
         return $dataProvider;

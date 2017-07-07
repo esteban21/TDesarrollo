@@ -7,10 +7,10 @@ use Yii;
 /**
  * This is the model class for table "cnv_estado_convenio".
  *
- * @property integer $ID_ESTADO_CONVENIO
- * @property string $NOMBRE_ESTADO_CONVENIO
- * @property string $DESCRIPCION
- * @property string $VIGENTE
+ * @property integer $id_estado_convenio
+ * @property string $nombre_estado_convenio
+ * @property string $descripcion
+ * @property string $vigente
  *
  * @property CnvConvenio[] $cnvConvenios
  */
@@ -30,11 +30,11 @@ class CnvEstadoConvenio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_ESTADO_CONVENIO'], 'required'],
-            [['ID_ESTADO_CONVENIO'], 'integer'],
-            [['NOMBRE_ESTADO_CONVENIO'], 'string', 'max' => 200],
-            [['DESCRIPCION'], 'string', 'max' => 500],
-            [['VIGENTE'], 'string', 'max' => 1],
+            [['id_estado_convenio'], 'required'],
+            [['id_estado_convenio'], 'integer'],
+            [['nombre_estado_convenio'], 'string', 'max' => 200],
+            [['descripcion'], 'string', 'max' => 500],
+            [['vigente'], 'string', 'max' => 1],
         ];
     }
 
@@ -44,10 +44,10 @@ class CnvEstadoConvenio extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID_ESTADO_CONVENIO' => 'Id  Estado  Convenio',
-            'NOMBRE_ESTADO_CONVENIO' => 'Nombre  Estado  Convenio',
-            'DESCRIPCION' => 'Descripcion',
-            'VIGENTE' => 'Vigente',
+            'id_estado_convenio' => 'Id Estado Convenio',
+            'nombre_estado_convenio' => 'Nombre Estado Convenio',
+            'descripcion' => 'Descripcion',
+            'vigente' => 'Vigente',
         ];
     }
 
@@ -56,6 +56,6 @@ class CnvEstadoConvenio extends \yii\db\ActiveRecord
      */
     public function getCnvConvenios()
     {
-        return $this->hasMany(CnvConvenio::className(), ['ID_ESTADO_CONVENIO' => 'ID_ESTADO_CONVENIO']);
+        return $this->hasMany(CnvConvenio::className(), ['id_estado_convenio' => 'id_estado_convenio']);
     }
 }

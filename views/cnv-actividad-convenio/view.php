@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\CnvActividadConvenio */
 
-$this->title = $model->ID_ACTIVIDAD_CONVENIO;
+$this->title = $model->id_actividad_convenio;
 $this->params['breadcrumbs'][] = ['label' => 'Cnv Actividad Convenios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->ID_ACTIVIDAD_CONVENIO], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->ID_ACTIVIDAD_CONVENIO], [
+        <?= Html::a('Update', ['update', 'id' => $model->id_actividad_convenio], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id_actividad_convenio], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,16 +28,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'ID_ESTADO_ACTIVIDAD',
-            'ID_TIPO_ACTIVIDAD',
-            'ID_RESPONSABLE_ACTIVIDAD',
-            'FECHA_INICIO',
-            'FECHA_FIN',
-            'ID_ACTIVIDAD_CONVENIO',
-            'ID_CONVENIO',
-            'NOMBRE_ACTIVIDAD',
-            'DESCRIPCION',
-            'VIGENTE',
+            'id_actividad_convenio',
+            'id_tipo_actividad',
+            'id_responsable_actividad',
+            'id_estado_actividad',
+            'fecha_inicio',
+            'fecha_fin',
+            'nombre_actividad',
+            'descripcion',
+            'vigente',
         ],
     ]) ?>
 

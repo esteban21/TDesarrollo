@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\CnvModalidadColaboracion;
+use app\models\CnvEstadoActividad;
 
 /**
- * CnvModalidadColaboracionSearch represents the model behind the search form about `app\models\CnvModalidadColaboracion`.
+ * CnvEstadoActividadSearch represents the model behind the search form about `app\models\CnvEstadoActividad`.
  */
-class CnvModalidadColaboracionSearch extends CnvModalidadColaboracion
+class CnvEstadoActividadSearch extends CnvEstadoActividad
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class CnvModalidadColaboracionSearch extends CnvModalidadColaboracion
     public function rules()
     {
         return [
-            [['ID_MODALIDAD_COLABORACION'], 'integer'],
-            [['NOMBRE_MODALIDAD_COLABORACION', 'DESCRIPCION', 'VIGENTE'], 'safe'],
+            [['id_estado_actividad'], 'integer'],
+            [['nombre_estado', 'descripcion', 'vigente'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class CnvModalidadColaboracionSearch extends CnvModalidadColaboracion
      */
     public function search($params)
     {
-        $query = CnvModalidadColaboracion::find();
+        $query = CnvEstadoActividad::find();
 
         // add conditions that should always apply here
 
@@ -59,12 +59,12 @@ class CnvModalidadColaboracionSearch extends CnvModalidadColaboracion
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'ID_MODALIDAD_COLABORACION' => $this->ID_MODALIDAD_COLABORACION,
+            'id_estado_actividad' => $this->id_estado_actividad,
         ]);
 
-        $query->andFilterWhere(['like', 'NOMBRE_MODALIDAD_COLABORACION', $this->NOMBRE_MODALIDAD_COLABORACION])
-            ->andFilterWhere(['like', 'DESCRIPCION', $this->DESCRIPCION])
-            ->andFilterWhere(['like', 'VIGENTE', $this->VIGENTE]);
+        $query->andFilterWhere(['like', 'nombre_estado', $this->nombre_estado])
+            ->andFilterWhere(['like', 'descripcion', $this->descripcion])
+            ->andFilterWhere(['like', 'vigente', $this->vigente]);
 
         return $dataProvider;
     }

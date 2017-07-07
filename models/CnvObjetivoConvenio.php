@@ -7,12 +7,11 @@ use Yii;
 /**
  * This is the model class for table "cnv_objetivo_convenio".
  *
- * @property integer $ID_OBJETIVO_CONVENIO
- * @property integer $ID_CONVENIO
- * @property string $TEXTO_OBJETIVO
- * @property string $VIGENTE
+ * @property integer $id_objetivo_convenio
+ * @property string $texto_objetivo
+ * @property string $vigente
  *
- * @property CnvConvenio $iDCONVENIO
+ * @property CnvConvenio[] $cnvConvenios
  */
 class CnvObjetivoConvenio extends \yii\db\ActiveRecord
 {
@@ -30,11 +29,10 @@ class CnvObjetivoConvenio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_OBJETIVO_CONVENIO'], 'required'],
-            [['ID_OBJETIVO_CONVENIO', 'ID_CONVENIO'], 'integer'],
-            [['TEXTO_OBJETIVO'], 'string', 'max' => 500],
-            [['VIGENTE'], 'string', 'max' => 1],
-            [['ID_CONVENIO'], 'exist', 'skipOnError' => true, 'targetClass' => CnvConvenio::className(), 'targetAttribute' => ['ID_CONVENIO' => 'ID_CONVENIO']],
+            [['id_objetivo_convenio'], 'required'],
+            [['id_objetivo_convenio'], 'integer'],
+            [['texto_objetivo'], 'string', 'max' => 500],
+            [['vigente'], 'string', 'max' => 1],
         ];
     }
 
@@ -44,18 +42,17 @@ class CnvObjetivoConvenio extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID_OBJETIVO_CONVENIO' => 'Id  Objetivo  Convenio',
-            'ID_CONVENIO' => 'Id  Convenio',
-            'TEXTO_OBJETIVO' => 'Texto  Objetivo',
-            'VIGENTE' => 'Vigente',
+            'id_objetivo_convenio' => 'Id Objetivo Convenio',
+            'texto_objetivo' => 'Texto Objetivo',
+            'vigente' => 'Vigente',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIDCONVENIO()
+    public function getCnvConvenios()
     {
-        return $this->hasOne(CnvConvenio::className(), ['ID_CONVENIO' => 'ID_CONVENIO']);
+        return $this->hasMany(CnvConvenio::className(), ['id_objetivo_convenio' => 'id_objetivo_convenio']);
     }
 }

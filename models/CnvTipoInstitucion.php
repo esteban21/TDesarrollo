@@ -7,9 +7,11 @@ use Yii;
 /**
  * This is the model class for table "cnv_tipo_institucion".
  *
- * @property string $DESCRIPCION
- * @property integer $ID_TIPO_INSTITUCION
- * @property string $VIGENTE
+ * @property string $descripcion
+ * @property integer $id_tipo_institucion
+ * @property string $vigente
+ *
+ * @property CnvInstitucion[] $cnvInstitucions
  */
 class CnvTipoInstitucion extends \yii\db\ActiveRecord
 {
@@ -27,10 +29,10 @@ class CnvTipoInstitucion extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_TIPO_INSTITUCION'], 'required'],
-            [['ID_TIPO_INSTITUCION'], 'integer'],
-            [['DESCRIPCION'], 'string', 'max' => 200],
-            [['VIGENTE'], 'string', 'max' => 1],
+            [['id_tipo_institucion'], 'required'],
+            [['id_tipo_institucion'], 'integer'],
+            [['descripcion'], 'string', 'max' => 500],
+            [['vigente'], 'string', 'max' => 1],
         ];
     }
 
@@ -40,9 +42,17 @@ class CnvTipoInstitucion extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'DESCRIPCION' => 'Descripcion',
-            'ID_TIPO_INSTITUCION' => 'Id  Tipo  Institucion',
-            'VIGENTE' => 'Vigente',
+            'descripcion' => 'Descripcion',
+            'id_tipo_institucion' => 'Id Tipo Institucion',
+            'vigente' => 'Vigente',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCnvInstitucions()
+    {
+        return $this->hasMany(CnvInstitucion::className(), ['id_tipo_institucion' => 'id_tipo_institucion']);
     }
 }

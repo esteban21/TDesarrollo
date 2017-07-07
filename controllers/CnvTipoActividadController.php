@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\CnvModalidadColaboracion;
-use app\models\CnvModalidadColaboracionSearch;
+use app\models\CnvTipoActividad;
+use app\models\CnvTipoActividadSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CnvModalidadColaboracionController implements the CRUD actions for CnvModalidadColaboracion model.
+ * CnvTipoActividadController implements the CRUD actions for CnvTipoActividad model.
  */
-class CnvModalidadColaboracionController extends Controller
+class CnvTipoActividadController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class CnvModalidadColaboracionController extends Controller
     }
 
     /**
-     * Lists all CnvModalidadColaboracion models.
+     * Lists all CnvTipoActividad models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CnvModalidadColaboracionSearch();
+        $searchModel = new CnvTipoActividadSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class CnvModalidadColaboracionController extends Controller
     }
 
     /**
-     * Displays a single CnvModalidadColaboracion model.
+     * Displays a single CnvTipoActividad model.
      * @param integer $id
      * @return mixed
      */
@@ -57,16 +57,16 @@ class CnvModalidadColaboracionController extends Controller
     }
 
     /**
-     * Creates a new CnvModalidadColaboracion model.
+     * Creates a new CnvTipoActividad model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new CnvModalidadColaboracion();
+        $model = new CnvTipoActividad();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID_MODALIDAD_COLABORACION]);
+            return $this->redirect(['view', 'id' => $model->id_tipo_actividad]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -75,7 +75,7 @@ class CnvModalidadColaboracionController extends Controller
     }
 
     /**
-     * Updates an existing CnvModalidadColaboracion model.
+     * Updates an existing CnvTipoActividad model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -85,7 +85,7 @@ class CnvModalidadColaboracionController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID_MODALIDAD_COLABORACION]);
+            return $this->redirect(['view', 'id' => $model->id_tipo_actividad]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -94,7 +94,7 @@ class CnvModalidadColaboracionController extends Controller
     }
 
     /**
-     * Deletes an existing CnvModalidadColaboracion model.
+     * Deletes an existing CnvTipoActividad model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class CnvModalidadColaboracionController extends Controller
     }
 
     /**
-     * Finds the CnvModalidadColaboracion model based on its primary key value.
+     * Finds the CnvTipoActividad model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return CnvModalidadColaboracion the loaded model
+     * @return CnvTipoActividad the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = CnvModalidadColaboracion::findOne($id)) !== null) {
+        if (($model = CnvTipoActividad::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
