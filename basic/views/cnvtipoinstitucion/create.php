@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\CnvPais */
+/* @var $model app\models\CnvTipoInstitucion */
 
-$this->title = 'Crear Pais';
-$this->params['breadcrumbs'][] = ['label' => 'Cnv Pais', 'url' => ['index']];
+$this->title = 'Crear Tipo de Institucion';
+$this->params['breadcrumbs'][] = ['label' => 'Cnv Tipo Institucions', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="cnv-pais-create">
+<div class="cnv-tipo-institucion-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

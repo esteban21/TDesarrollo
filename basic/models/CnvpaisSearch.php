@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Cnvpais;
+use app\models\CnvPais;
 
 /**
- * CnvpaisSearch represents the model behind the search form about `app\models\Cnvpais`.
+ * CnvpaisSearch represents the model behind the search form about `app\models\CnvPais`.
  */
-class CnvpaisSearch extends Cnvpais
+class CnvpaisSearch extends CnvPais
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class CnvpaisSearch extends Cnvpais
     public function rules()
     {
         return [
-            [['ID_PAIS'], 'integer'],
-            [['NOMBRE_PAIS', 'CODIGO_PAIS', 'VIGENTE'], 'safe'],
+            [['id_pais'], 'integer'],
+            [['nombre_pais', 'codigo_pais', 'vigente'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class CnvpaisSearch extends Cnvpais
      */
     public function search($params)
     {
-        $query = Cnvpais::find();
+        $query = CnvPais::find();
 
         // add conditions that should always apply here
 
@@ -59,12 +59,12 @@ class CnvpaisSearch extends Cnvpais
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'ID_PAIS' => $this->ID_PAIS,
+            'id_pais' => $this->id_pais,
         ]);
 
-        $query->andFilterWhere(['like', 'NOMBRE_PAIS', $this->NOMBRE_PAIS])
-            ->andFilterWhere(['like', 'CODIGO_PAIS', $this->CODIGO_PAIS])
-            ->andFilterWhere(['like', 'VIGENTE', $this->VIGENTE]);
+        $query->andFilterWhere(['like', 'nombre_pais', $this->nombre_pais])
+            ->andFilterWhere(['like', 'codigo_pais', $this->codigo_pais])
+            ->andFilterWhere(['like', 'vigente', $this->vigente]);
 
         return $dataProvider;
     }

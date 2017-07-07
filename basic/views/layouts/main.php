@@ -40,7 +40,7 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Gestionar Pais', 'url' => '#','items'=>[
-                    ['label' => 'Lista paises', 'icon' => 'fa fa-circle-o', 'url' => ['cnvpais/index']],
+                    ['label' => 'Listar paises', 'icon' => 'fa fa-circle-o', 'url' => ['cnvpais/index']],
                     ['label' => 'Agregar Pais', 'icon' => 'fa fa-circle-o', 'url' => ['cnvpais/create']],
                     ['label' => 'Editar Pais', 'icon' => 'fa fa-circle-o', 'url' => ['cnvpais/editar']],
                     ['label' => 'Eliminar Pais', 'icon' => 'fa fa-circle-o', 'url' => ['cnvpais/eliminar']]
@@ -48,6 +48,28 @@ AppAsset::register($this);
                 ]//fin items gestionar pais
 
             ],
+
+
+            ['label' => 'Gestionar T. Institucion', 'url' => '#','items'=>[
+                    ['label' => 'Lista de tipos', 'icon' => 'fa fa-circle-o', 'url' => ['cnvtipoinstitucion/index']],
+                    ['label' => 'Agregar tipo', 'icon' => 'fa fa-circle-o', 'url' => ['cnvtipoinstitucion/create']],
+                    ['label' => 'Editar tipo', 'icon' => 'fa fa-circle-o', 'url' => ['cnvtipoinstitucion/editar']],
+                    ['label' => 'Eliminar tipo', 'icon' => 'fa fa-circle-o', 'url' => ['cnvtipoinstitucion/eliminar']]
+
+                ]//fin items gestionar pais
+
+            ],
+
+            ['label' => 'Gestionar Institucion', 'url' => '#','items'=>[
+                    ['label' => 'Listar Instituciones', 'icon' => 'fa fa-circle-o', 'url' => ['cnvinstitucion/index']],
+                    ['label' => 'Agregar Institucion', 'icon' => 'fa fa-circle-o', 'url' => ['cnvinstitucion/create']],
+                    ['label' => 'Editar Institucion', 'icon' => 'fa fa-circle-o', 'url' => ['cnvinstitucion/editar']],
+                    ['label' => 'Eliminar Institucion', 'icon' => 'fa fa-circle-o', 'url' => ['cnvinstitucion/eliminar']]
+
+                ]//fin items gestionar pais
+
+            ],
+
 
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]

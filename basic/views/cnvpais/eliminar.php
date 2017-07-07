@@ -10,7 +10,7 @@ use yii\grid\GridView;
 $this->title = 'Eliminar Pais';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="cnvpais-index">
+<div class="cnv-pais-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -18,16 +18,16 @@ $this->params['breadcrumbs'][] = $this->title;
    
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        //'filterModel' => $searchModel,
+        'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'ID_PAIS',
-            'NOMBRE_PAIS',
-            'CODIGO_PAIS',
-            'VIGENTE',
+            'id_pais',
+            'nombre_pais',
+            'codigo_pais',
+            'vigente',
 
-            ['class' => 'yii\grid\ActionColumn','template' => '{delete}'],
+            ['class' => 'yii\grid\ActionColumn','template' => '{delete} '],
         ],
     ]); ?>
 </div>

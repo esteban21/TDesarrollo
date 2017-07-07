@@ -3,14 +3,14 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Cnvpais */
+/* @var $model app\models\CnvPais */
 
-$this->title = 'Update Cnvpais: ' . $model->ID_PAIS;
-$this->params['breadcrumbs'][] = ['label' => 'Cnvpais', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->ID_PAIS, 'url' => ['view', 'id' => $model->ID_PAIS]];
+$this->title = 'Update Cnv Pais: ' . $model->id_pais;
+$this->params['breadcrumbs'][] = ['label' => 'Cnv Pais', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->id_pais, 'url' => ['view', 'id' => $model->id_pais]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="cnvpais-update">
+<div class="cnv-pais-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

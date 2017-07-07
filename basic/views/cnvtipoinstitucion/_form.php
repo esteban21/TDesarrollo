@@ -4,19 +4,17 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\CnvPais */
+/* @var $model app\models\CnvTipoInstitucion */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="cnv-pais-form">
+<div class="cnv-tipo-institucion-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_pais')->textInput() ?>
+    <?= $form->field($model, 'descripcion')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'nombre_pais')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'codigo_pais')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'id_tipo_institucion')->textInput() ?>
 
     <?= $form->field($model, 'vigente')->textInput(['maxlength' => true]) ?>
 

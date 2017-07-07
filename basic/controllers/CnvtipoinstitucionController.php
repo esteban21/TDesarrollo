@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\CnvPais;
-use app\models\CnvPaisSearch;
+use app\models\CnvTipoInstitucion;
+use app\models\CnvtipoinstitucionSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CnvPaisController implements the CRUD actions for CnvPais model.
+ * CnvtipoinstitucionController implements the CRUD actions for CnvTipoInstitucion model.
  */
-class CnvPaisController extends Controller
+class CnvtipoinstitucionController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class CnvPaisController extends Controller
     }
 
     /**
-     * Lists all CnvPais models.
+     * Lists all CnvTipoInstitucion models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CnvPaisSearch();
+        $searchModel = new CnvtipoinstitucionSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -44,8 +44,32 @@ class CnvPaisController extends Controller
         ]);
     }
 
+    public function actionEditar()
+    {
+        $searchModel = new CnvtipoinstitucionSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('editar', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+
+public function actionEliminar()
+    {
+        $searchModel = new CnvtipoinstitucionSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('eliminar', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+
     /**
-     * Displays a single CnvPais model.
+     * Displays a single CnvTipoInstitucion model.
      * @param integer $id
      * @return mixed
      */
@@ -57,16 +81,16 @@ class CnvPaisController extends Controller
     }
 
     /**
-     * Creates a new CnvPais model.
+     * Creates a new CnvTipoInstitucion model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new CnvPais();
+        $model = new CnvTipoInstitucion();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID_PAIS]);
+            return $this->redirect(['view', 'id' => $model->id_tipo_institucion]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -75,7 +99,7 @@ class CnvPaisController extends Controller
     }
 
     /**
-     * Updates an existing CnvPais model.
+     * Updates an existing CnvTipoInstitucion model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -85,7 +109,7 @@ class CnvPaisController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID_PAIS]);
+            return $this->redirect(['view', 'id' => $model->id_tipo_institucion]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -94,7 +118,7 @@ class CnvPaisController extends Controller
     }
 
     /**
-     * Deletes an existing CnvPais model.
+     * Deletes an existing CnvTipoInstitucion model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +131,15 @@ class CnvPaisController extends Controller
     }
 
     /**
-     * Finds the CnvPais model based on its primary key value.
+     * Finds the CnvTipoInstitucion model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return CnvPais the loaded model
+     * @return CnvTipoInstitucion the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = CnvPais::findOne($id)) !== null) {
+        if (($model = CnvTipoInstitucion::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

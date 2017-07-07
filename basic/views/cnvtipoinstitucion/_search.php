@@ -4,22 +4,20 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\CnvpaisSearch */
+/* @var $model app\models\CnvtipoinstitucionSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="cnv-pais-search">
+<div class="cnv-tipo-institucion-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id_pais') ?>
+    <?= $form->field($model, 'descripcion') ?>
 
-    <?= $form->field($model, 'nombre_pais') ?>
-
-    <?= $form->field($model, 'codigo_pais') ?>
+    <?= $form->field($model, 'id_tipo_institucion') ?>
 
     <?= $form->field($model, 'vigente') ?>
 

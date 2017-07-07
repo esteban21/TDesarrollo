@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\CnvPais */
+/* @var $model app\models\CnvTipoInstitucion */
 
-$this->title = $model->id_pais;
-$this->params['breadcrumbs'][] = ['label' => 'Cnv Pais', 'url' => ['index']];
+$this->title = $model->id_tipo_institucion;
+$this->params['breadcrumbs'][] = ['label' => 'Cnv Tipo Institucions', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="cnv-pais-view">
+<div class="cnv-tipo-institucion-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Modificar', ['update', 'id' => $model->id_pais], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Eliminar', ['delete', 'id' => $model->id_pais], [
+        <?= Html::a('Modificar', ['update', 'id' => $model->id_tipo_institucion], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Eliminar', ['delete', 'id' => $model->id_tipo_institucion], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,9 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id_pais',
-            'nombre_pais',
-            'codigo_pais',
+            'descripcion',
+            'id_tipo_institucion',
             'vigente',
         ],
     ]) ?>

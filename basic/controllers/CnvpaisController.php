@@ -3,14 +3,14 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Cnvpais;
+use app\models\CnvPais;
 use app\models\CnvpaisSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CnvpaisController implements the CRUD actions for Cnvpais model.
+ * CnvpaisController implements the CRUD actions for CnvPais model.
  */
 class CnvpaisController extends Controller
 {
@@ -30,7 +30,7 @@ class CnvpaisController extends Controller
     }
 
     /**
-     * Lists all Cnvpais models.
+     * Lists all CnvPais models.
      * @return mixed
      */
     public function actionIndex()
@@ -43,7 +43,6 @@ class CnvpaisController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-
 
     public function actionEditar()
     {
@@ -66,10 +65,8 @@ class CnvpaisController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-
-
     /**
-     * Displays a single Cnvpais model.
+     * Displays a single CnvPais model.
      * @param integer $id
      * @return mixed
      */
@@ -81,16 +78,16 @@ class CnvpaisController extends Controller
     }
 
     /**
-     * Creates a new Cnvpais model.
+     * Creates a new CnvPais model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Cnvpais();
+        $model = new CnvPais();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID_PAIS]);
+            return $this->redirect(['view', 'id' => $model->id_pais]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -99,7 +96,7 @@ class CnvpaisController extends Controller
     }
 
     /**
-     * Updates an existing Cnvpais model.
+     * Updates an existing CnvPais model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -109,7 +106,7 @@ class CnvpaisController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID_PAIS]);
+            return $this->redirect(['view', 'id' => $model->id_pais]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -118,7 +115,7 @@ class CnvpaisController extends Controller
     }
 
     /**
-     * Deletes an existing Cnvpais model.
+     * Deletes an existing CnvPais model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -131,15 +128,15 @@ class CnvpaisController extends Controller
     }
 
     /**
-     * Finds the Cnvpais model based on its primary key value.
+     * Finds the CnvPais model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Cnvpais the loaded model
+     * @return CnvPais the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Cnvpais::findOne($id)) !== null) {
+        if (($model = CnvPais::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
