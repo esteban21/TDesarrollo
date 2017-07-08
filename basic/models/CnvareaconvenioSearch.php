@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Cnv_tipo_documento;
+use app\models\CnvAreaConvenio;
 
 /**
- * Cnv_tipo_documentoSearch represents the model behind the search form about `app\models\Cnv_tipo_documento`.
+ * CnvareaconvenioSearch represents the model behind the search form about `app\models\CnvAreaConvenio`.
  */
-class Cnv_tipo_documentoSearch extends Cnv_tipo_documento
+class CnvareaconvenioSearch extends CnvAreaConvenio
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class Cnv_tipo_documentoSearch extends Cnv_tipo_documento
     public function rules()
     {
         return [
-            [['ID_TIPO_DOCUMENTO'], 'integer'],
-            [['NOMBRE_TIPO_DOCUMENTO', 'DESCRIPCION', 'VIGENTE'], 'safe'],
+            [['id_area_convenio'], 'integer'],
+            [['nombre_area_convenio', 'descripcion', 'vigente'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class Cnv_tipo_documentoSearch extends Cnv_tipo_documento
      */
     public function search($params)
     {
-        $query = Cnv_tipo_documento::find();
+        $query = CnvAreaConvenio::find();
 
         // add conditions that should always apply here
 
@@ -59,12 +59,12 @@ class Cnv_tipo_documentoSearch extends Cnv_tipo_documento
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'ID_TIPO_DOCUMENTO' => $this->ID_TIPO_DOCUMENTO,
+            'id_area_convenio' => $this->id_area_convenio,
         ]);
 
-        $query->andFilterWhere(['like', 'NOMBRE_TIPO_DOCUMENTO', $this->NOMBRE_TIPO_DOCUMENTO])
-            ->andFilterWhere(['like', 'DESCRIPCION', $this->DESCRIPCION])
-            ->andFilterWhere(['like', 'VIGENTE', $this->VIGENTE]);
+        $query->andFilterWhere(['like', 'nombre_area_convenio', $this->nombre_area_convenio])
+            ->andFilterWhere(['like', 'descripcion', $this->descripcion])
+            ->andFilterWhere(['like', 'vigente', $this->vigente]);
 
         return $dataProvider;
     }
