@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\CnvTipoInstitucionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Cnv Tipo Institucions';
+$this->title = 'Tipo Institucions';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cnv-tipo-institucion-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Cnv Tipo Institucion', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear Tipo Institucion', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

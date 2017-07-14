@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\CnvEstadoActividadSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Cnv Estado Actividads';
+$this->title = 'Estado Actividad';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cnv-estado-actividad-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Cnv Estado Actividad', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear Estado Actividad', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

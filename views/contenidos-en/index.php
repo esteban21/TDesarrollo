@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\ContenidosEnSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Contenidos Ens';
+$this->title = 'Contenidos En';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="contenidos-en-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Contenidos En', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear Contenidos En', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

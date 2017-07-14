@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\CnvModalidadColaboracionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Cnv Modalidad Colaboracions';
+$this->title = 'Modalidad Colaboracions';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cnv-modalidad-colaboracion-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Cnv Modalidad Colaboracion', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear Modalidad Colaboracion', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
