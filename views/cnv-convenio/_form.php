@@ -2,7 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\CnvConvenio;
 
+use app\models\CnvTipoConvenio;
+use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $model app\models\CnvConvenio */
 /* @var $form yii\widgets\ActiveForm */
@@ -14,13 +17,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_convenio')->textInput() ?>
 
-    <?= $form->field($model, 'id_tipo_convenio')->textInput() ?>
-
-    <?= $form->field($model, 'id_coordinador_convenio')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'id_tipo_convenio')->dropDownList(ArrayHelper::map(CnvTipoConvenio::find()->all(),'id_tipo_convenio','nombre_tipo_convenio')
+    ,['prompt'=>'Seleccione tipo de convenio']
+    ) ?>
 
     <?= $form->field($model, 'id_estado_convenio')->textInput() ?>
 
-    <?= $form->field($model, 'nombre_convenio')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'nombre_convenio')->textInput() ?>
 
     <?= $form->field($model, 'fecha_inicio')->textInput() ?>
 

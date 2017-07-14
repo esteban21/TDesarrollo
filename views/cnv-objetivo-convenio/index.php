@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\CnvObjetivoConvenioSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Cnv Objetivo Convenios';
+$this->title = 'Objetivo Convenios';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cnv-objetivo-convenio-index">

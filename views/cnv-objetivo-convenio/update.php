@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\CnvObjetivoConvenio */
 
-$this->title = 'Update Cnv Objetivo Convenio: ' . $model->id_objetivo_convenio;
-$this->params['breadcrumbs'][] = ['label' => 'Cnv Objetivo Convenios', 'url' => ['index']];
+$this->title = 'Modificar Objetivo Convenio: ' . $model->id_objetivo_convenio;
+$this->params['breadcrumbs'][] = ['label' => 'Objetivo Convenios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id_objetivo_convenio, 'url' => ['view', 'id' => $model->id_objetivo_convenio]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>

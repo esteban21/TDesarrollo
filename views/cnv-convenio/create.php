@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\CnvConvenio */
 
-$this->title = 'Create Cnv Convenio';
-$this->params['breadcrumbs'][] = ['label' => 'Cnv Convenios', 'url' => ['index']];
+$this->title = 'Crear  Convenio';
+$this->params['breadcrumbs'][] = ['label' => 'Convenios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cnv-convenio-create">

@@ -8,6 +8,7 @@ use app\models\CnvObjetivoConvenioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * CnvObjetivoConvenioController implements the CRUD actions for CnvObjetivoConvenio model.
@@ -17,17 +18,28 @@ class CnvObjetivoConvenioController extends Controller
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
+     public function behaviors()
+     {
+         return [
+           'access'=>[
+               'class'=>AccessControl::classname(),
+               'only'=>['create','update','delete','send','view','evaluate','derivate','index'],
+               'rules'=>[
+                 [
+                   'allow'=>true,
+                   'actions' =>['create','update','delete','send','view','index'],
+                   'roles'=>['@'],//cambiar al rol usuario
+                 ],
+               ],
+               ],
+             'verbs' => [
+                 'class' => VerbFilter::className(),
+                 'actions' => [
+                     'delete' => ['POST'],
+                 ],
+             ],
+         ];
+     }
 
     /**
      * Lists all CnvObjetivoConvenio models.

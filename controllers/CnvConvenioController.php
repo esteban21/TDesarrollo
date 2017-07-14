@@ -8,6 +8,7 @@ use app\models\CnvConvenioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * CnvConvenioController implements the CRUD actions for CnvConvenio model.
@@ -20,6 +21,17 @@ class CnvConvenioController extends Controller
     public function behaviors()
     {
         return [
+          'access'=>[
+              'class'=>AccessControl::classname(),
+              'only'=>['create','update','delete','send','view','evaluate','derivate','index'],
+              'rules'=>[
+                [
+                  'allow'=>true,
+                  'actions' =>['create','update','delete','send','view','index'],
+                  'roles'=>['@'],//cambiar al rol usuario
+                ],
+              ],
+              ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
