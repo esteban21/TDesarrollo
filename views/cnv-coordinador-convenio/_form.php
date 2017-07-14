@@ -12,27 +12,27 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'ID_COORDINADOR_CONVENIO')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'id_coordinador_convenio')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'RUT_COORDINADOR_CONVENIO')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'rut_coordinador_convenio')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'NOMBRE_COORDINADOR_CONVENIO')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'nombre_coordinador_convenio')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'DV_COORDINADOR_CONVENIO')->textInput() ?>
+    <?= $form->field($model, 'dv_coordinador_convenio')->textInput() ?>
 
-    <?= $form->field($model, 'FECHA_INICIO')->textInput() ?>
+    <?= $form->field($model, 'fecha_inicio')->textInput() ?>
 
-    <?= $form->field($model, 'FECHA_FIN')->textInput() ?>
+    <?= $form->field($model, 'fecha_fin')->textInput() ?>
 
-    <?= $form->field($model, 'VIGENTE')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'vigente')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'ESEXTERNO')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'esexterno')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'UNIDAD_ACADEMICA')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'unidad_academica')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'EMAIL')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'ID_INSTITUCION')->textInput() ?>
+    <?= $form->field($model, 'id_institucion2')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Universidad de Macondo';
 ?>
 <div class="site-index">
 
@@ -49,9 +49,9 @@ $this->title = 'My Yii Application';
             </div>
 
             <div class="col-lg-4">
-                <h2>Modalidad Colaboracion</h2>
+                <h2>Estado Convenio</h2>
 
-                <p><a class="btn btn-default" href="http://localhost/TDesarrollo/web/index.php?r=cnv-modalidad-colaboracion/index">Ir Modalidad Colaboracion &raquo;</a></p>
+                <p><a class="btn btn-default" href="http://localhost/TDesarrollo/web/index.php?r=cnv-estado-convenio/index">Ir Estado Convenio &raquo;</a></p>
             </div>
 
             <div class="col-lg-4">
@@ -69,7 +69,7 @@ $this->title = 'My Yii Application';
             <div class="col-lg-4">
                 <h2>Institucion</h2>
 
-                <p><a class="btn btn-default" href="http://localhost/TDesarrollo/web/index.php?r=cnv-insitucion/index">Ir Institucion &raquo;</a></p>
+                <p><a class="btn btn-default" href="http://localhost/TDesarrollo/web/index.php?r=cnv-institucion/index">Ir Institucion &raquo;</a></p>
             </div>
 
             <div class="col-lg-4">
@@ -99,13 +99,13 @@ $this->title = 'My Yii Application';
             <div class="col-lg-4">
                 <h2>Contenidos en</h2>
 
-                <p><a class="btn btn-default" href="http://localhost/TDesarrollo/web/index.php?r=cnv-contenidos-en/index">Ir Contenidos en &raquo;</a></p>
+                <p><a class="btn btn-default" href="http://localhost/TDesarrollo/web/index.php?r=contenidos-en/index">Ir Contenidos en &raquo;</a></p>
             </div>
 
             <div class="col-lg-4">
                 <h2>Coordinados por</h2>
 
-                <p><a class="btn btn-default" href="http://localhost/TDesarrollo/web/index.php?r=cnv-coordinados-por/index">Ir Coordinados por &raquo;</a></p>
+                <p><a class="btn btn-default" href="http://localhost/TDesarrollo/web/index.php?r=coordinados-por/index">Ir Coordinados por &raquo;</a></p>
             </div>
 
 

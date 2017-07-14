@@ -15,27 +15,27 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'ID_COORDINADOR_CONVENIO') ?>
+    <?= $form->field($model, 'id_coordinador_convenio') ?>
 
-    <?= $form->field($model, 'RUT_COORDINADOR_CONVENIO') ?>
+    <?= $form->field($model, 'rut_coordinador_convenio') ?>
 
-    <?= $form->field($model, 'NOMBRE_COORDINADOR_CONVENIO') ?>
+    <?= $form->field($model, 'nombre_coordinador_convenio') ?>
 
-    <?= $form->field($model, 'DV_COORDINADOR_CONVENIO') ?>
+    <?= $form->field($model, 'dv_coordinador_convenio') ?>
 
-    <?= $form->field($model, 'FECHA_INICIO') ?>
+    <?= $form->field($model, 'fecha_inicio') ?>
 
-    <?php // echo $form->field($model, 'FECHA_FIN') ?>
+    <?php // echo $form->field($model, 'fecha_fin') ?>
 
-    <?php // echo $form->field($model, 'VIGENTE') ?>
+    <?php // echo $form->field($model, 'vigente') ?>
 
-    <?php // echo $form->field($model, 'ESEXTERNO') ?>
+    <?php // echo $form->field($model, 'esexterno') ?>
 
-    <?php // echo $form->field($model, 'UNIDAD_ACADEMICA') ?>
+    <?php // echo $form->field($model, 'unidad_academica') ?>
 
-    <?php // echo $form->field($model, 'EMAIL') ?>
+    <?php // echo $form->field($model, 'email') ?>
 
-    <?php // echo $form->field($model, 'ID_INSTITUCION') ?>
+    <?php // echo $form->field($model, 'id_institucion2') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
